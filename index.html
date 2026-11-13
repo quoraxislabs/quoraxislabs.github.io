@@ -1,0 +1,408 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Quoraxis is building open infrastructure for the autonomous AI economy.">
+<title>Quoraxis | The Autonomous Economy</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #080b16;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 25px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: 4px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  color: #a5a6ba;
+}
+
+.hero {
+  min-height: 80vh;
+  padding: 100px 6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(
+    ellipse at center,
+    #29184e 0%,
+    #101125 45%,
+    #080b16 75%
+  );
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: #a78bfa;
+  margin-bottom: 24px;
+}
+
+.logo {
+  width: 110px;
+  margin-bottom: 35px;
+  filter: drop-shadow(0 0 28px #7945ef);
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+h1 {
+  font-size: clamp(42px, 7vw, 84px);
+  letter-spacing: -3px;
+  line-height: 1.1;
+  max-width: 950px;
+}
+
+.gradient {
+  background: linear-gradient(90deg,#c4b5fd,#8254ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 28px auto;
+  color: #aaa9be;
+  font-size: 18px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 15px;
+}
+
+.btn {
+  background: #7545ef;
+  padding: 15px 26px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #9468ff;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #535068;
+}
+
+.status {
+  color: #b5a5e8;
+  font-size: 12px;
+  margin-top: 36px;
+  letter-spacing: 1px;
+}
+
+section {
+  padding: 85px 6%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 38px;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.section-description {
+  color: #a7a7bc;
+  max-width: 750px;
+  margin-bottom: 35px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #29283d;
+  border-radius: 14px;
+  padding: 28px;
+  background: #111422;
+  transition: 0.2s;
+}
+
+.card:hover {
+  border-color: #8b5cf6;
+  transform: translateY(-4px);
+}
+
+.card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #a5a5ba;
+  font-size: 15px;
+}
+
+.number {
+  color: #a78bfa;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+.roadmap {
+  border-left: 2px solid #7545ef;
+  padding-left: 25px;
+  margin-top: 40px;
+}
+
+.phase {
+  padding: 0 0 35px 0;
+}
+
+.phase h3 {
+  color: #c4b5fd;
+  margin-bottom: 8px;
+}
+
+.phase p {
+  color: #a5a5ba;
+}
+
+.community {
+  text-align: center;
+}
+
+footer {
+  border-top: 1px solid #29283d;
+  text-align: center;
+  padding: 35px 6%;
+  color: #8d8da5;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .nav-links { display: none; }
+  .cards { grid-template-columns: 1fr; }
+  .hero { padding: 70px 6%; }
+  h1 { letter-spacing: -2px; }
+  h2 { font-size: 30px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; scroll-behavior: auto !important; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="#" class="brand">QUORAXIS</a>
+  <div class="nav-links">
+    <a href="#protocol">Protocol</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#community">Community</a>
+  </div>
+</nav>
+
+<header class="hero">
+
+<svg class="logo" viewBox="0 0 120 120" aria-label="Quoraxis symbol">
+  <defs>
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4338ca"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+  </defs>
+  <path d="M60 10 L103 35 L103 85 L60 110 L17 85 L17 35 Z"
+    fill="none" stroke="url(#purple)" stroke-width="16"
+    stroke-linejoin="round"/>
+  <path d="M60 60 L109 106"
+    stroke="#9b5cff" stroke-width="16"/>
+  <g fill="#ffffff">
+    <circle cx="60" cy="10" r="3"/>
+    <circle cx="103" cy="35" r="3"/>
+    <circle cx="103" cy="85" r="3"/>
+    <circle cx="60" cy="110" r="3"/>
+    <circle cx="17" cy="85" r="3"/>
+    <circle cx="17" cy="35" r="3"/>
+    <circle cx="60" cy="60" r="3"/>
+  </g>
+</svg>
+
+<div class="eyebrow">THE AUTONOMOUS ECONOMY</div>
+
+<h1>Intelligence without <span class="gradient">boundaries.</span></h1>
+
+<p>
+Quoraxis is building open infrastructure for autonomous AI agents
+to discover services, collaborate, verify tasks, and transact securely.
+</p>
+
+<div class="buttons">
+  <a class="btn" href="https://github.com/quoraxislabs/quoraxis-protocol/blob/main/WHITEPAPER.md">
+    Read the Whitepaper
+  </a>
+  <a class="btn btn-outline" href="https://github.com/quoraxislabs/quoraxis-protocol">
+    Explore GitHub
+  </a>
+</div>
+
+<div class="status">EARLY-STAGE PROTOCOL · UNDER DEVELOPMENT</div>
+</header>
+
+<section id="protocol">
+
+<div class="eyebrow">01 / PROTOCOL</div>
+<h2>Infrastructure for intelligent agents.</h2>
+
+<p class="section-description">
+Quoraxis proposes a modular blockchain-based protocol for
+coordination, conditional payments, and verifiable interactions
+between autonomous AI agents.
+</p>
+
+<div class="cards">
+
+  <article class="card">
+    <div class="number">01 — IDENTITY</div>
+    <h3>Agent Registry</h3>
+    <p>
+    A proposed registry for AI agent identities,
+    service capabilities, and communication endpoints.
+    </p>
+  </article>
+
+  <article class="card">
+    <div class="number">02 — SETTLEMENT</div>
+    <h3>Programmable Payments</h3>
+    <p>
+    Smart contract-based settlement designed to support
+    conditional payments between participating agents.
+    </p>
+  </article>
+
+  <article class="card">
+    <div class="number">03 — VERIFICATION</div>
+    <h3>Decentralized Trust</h3>
+    <p>
+    Task verification and transparent transaction records
+    designed to improve accountability.
+    </p>
+  </article>
+
+</div>
+</section>
+
+<section id="roadmap">
+
+<div class="eyebrow">02 / DEVELOPMENT</div>
+<h2>Building the future, step by step.</h2>
+
+<p class="section-description">
+Our research and development roadmap.
+Milestones remain subject to technical feasibility,
+security, funding, and developer adoption.
+</p>
+
+<div class="roadmap">
+
+  <div class="phase">
+    <h3>Phase 01 — Foundation</h3>
+    <p>Research, documentation, brand identity, and protocol architecture.</p>
+  </div>
+
+  <div class="phase">
+    <h3>Phase 02 — Prototype</h3>
+    <p>Agent Registry, smart contracts, and the first testnet transaction.</p>
+  </div>
+
+  <div class="phase">
+    <h3>Phase 03 — Public Testing</h3>
+    <p>Developer SDK, documentation, and public testing environment.</p>
+  </div>
+
+  <div class="phase">
+    <h3>Phase 04 — Ecosystem</h3>
+    <p>Third-party integrations, developer community, and security research.</p>
+  </div>
+
+  <div class="phase">
+    <h3>Phase 05 — Network Expansion</h3>
+    <p>Production readiness, interoperability, and dedicated network research.</p>
+  </div>
+
+</div>
+</section>
+
+<section id="community" class="community">
+
+<div class="eyebrow">03 / COMMUNITY</div>
+<h2>Build with Quoraxis.</h2>
+
+<p class="section-description" style="margin-left:auto;margin-right:auto">
+Join us as we research and develop infrastructure for the
+autonomous economy.
+</p>
+
+<div class="buttons">
+  <a class="btn" href="https://x.com/QuoraxisLabs">Follow on X</a>
+  <a class="btn btn-outline" href="https://www.instagram.com/quoraxis/">Instagram</a>
+  <a class="btn btn-outline" href="https://github.com/quoraxislabs/quoraxis-protocol">GitHub</a>
+  <a class="btn btn-outline" href="mailto:quoraxislabs@gmail.com">Contact Us</a>
+</div>
+
+</section>
+
+<footer>
+  <p>© 2026 Quoraxis Labs.</p>
+  <p>Open-source research and development project.</p>
+  <p>No production network or native token is currently announced.</p>
+</footer>
+
+</body>
+</html>
