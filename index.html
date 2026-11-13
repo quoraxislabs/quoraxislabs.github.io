@@ -1,19 +1,25 @@
- <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Quoraxis is building open infrastructure for the autonomous AI economy.">
+<meta name="description" content="Quoraxis Protocol is open-source infrastructure for autonomous AI agent coordination, conditional payments, and decentralized task settlement. Explore Genesis Release v0.1.0.">
+<meta name="theme-color" content="#080b16">
+
 <title>Quoraxis | The Autonomous Economy</title>
 
 <style>
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background: #080b16;
@@ -27,6 +33,11 @@ a {
   text-decoration: none;
 }
 
+a:focus-visible {
+  outline: 2px solid #c4b5fd;
+  outline-offset: 5px;
+}
+
 nav {
   max-width: 1200px;
   margin: auto;
@@ -34,6 +45,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -45,14 +57,19 @@ nav {
 
 .nav-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 24px;
   font-size: 14px;
   color: #a5a6ba;
 }
 
+.nav-links a:hover {
+  color: #c4b5fd;
+}
+
 .hero {
   min-height: 80vh;
-  padding: 100px 6%;
+  padding: 85px 6%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,21 +85,39 @@ nav {
 
 .eyebrow {
   font-size: 12px;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   color: #a78bfa;
   margin-bottom: 24px;
 }
 
 .logo {
   width: 110px;
-  margin-bottom: 35px;
+  margin-bottom: 28px;
   filter: drop-shadow(0 0 28px #7945ef);
   animation: float 5s ease-in-out infinite;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.release-badge {
+  display: inline-block;
+  padding: 8px 17px;
+  border: 1px solid #7954bd;
+  border-radius: 30px;
+  color: #d8c7ff;
+  background: rgba(117, 69, 239, 0.12);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+  margin-bottom: 22px;
 }
 
 h1 {
@@ -93,14 +128,14 @@ h1 {
 }
 
 .gradient {
-  background: linear-gradient(90deg,#c4b5fd,#8254ff);
+  background: linear-gradient(90deg, #c4b5fd, #8254ff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .hero p {
-  max-width: 650px;
+  max-width: 680px;
   margin: 28px auto;
   color: #aaa9be;
   font-size: 18px;
@@ -115,6 +150,7 @@ h1 {
 }
 
 .btn {
+  display: inline-block;
   background: #7545ef;
   padding: 15px 26px;
   border-radius: 8px;
@@ -132,23 +168,69 @@ h1 {
   border: 1px solid #535068;
 }
 
+.btn-outline:hover {
+  background: #211938;
+  border-color: #a78bfa;
+}
+
 .status {
   color: #b5a5e8;
-  font-size: 12px;
+  font-size: 11px;
   margin-top: 36px;
   letter-spacing: 1px;
+}
+
+.stats-wrapper {
+  max-width: 1200px;
+  padding: 0 6%;
+  margin: 0 auto;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid #29283d;
+  border-radius: 14px;
+  background: #111422;
+  overflow: hidden;
+}
+
+.stat {
+  padding: 30px 15px;
+  text-align: center;
+  border-right: 1px solid #29283d;
+}
+
+.stat:last-child {
+  border-right: none;
+}
+
+.stat strong {
+  display: block;
+  font-size: 38px;
+  color: #c4b5fd;
+  line-height: 1.3;
+}
+
+.stat span {
+  display: block;
+  color: #a5a5ba;
+  font-size: 13px;
+  margin-top: 8px;
 }
 
 section {
   padding: 85px 6%;
   max-width: 1200px;
   margin: auto;
+  scroll-margin-top: 20px;
 }
 
 h2 {
   font-size: 38px;
   margin-bottom: 20px;
   letter-spacing: -1px;
+  line-height: 1.2;
 }
 
 .section-description {
@@ -161,6 +243,10 @@ h2 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+}
+
+.cards-two {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .card {
@@ -186,11 +272,118 @@ h2 {
   font-size: 15px;
 }
 
+.card ul {
+  color: #a5a5ba;
+  font-size: 14px;
+  padding-left: 18px;
+  margin-top: 17px;
+  margin-bottom: 20px;
+}
+
+.card li {
+  margin-bottom: 8px;
+}
+
 .number {
   color: #a78bfa;
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 2px;
   margin-bottom: 18px;
+}
+
+.text-link {
+  display: inline-block;
+  color: #c4b5fd;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.text-link:hover {
+  color: #ffffff;
+}
+
+.release-panel {
+  padding: 35px;
+  background: linear-gradient(135deg, #1d1635, #111422);
+  border: 1px solid #463765;
+  border-radius: 16px;
+}
+
+.release-panel h3 {
+  font-size: 28px;
+  margin: 15px 0;
+}
+
+.release-panel p {
+  color: #b9b5ca;
+  max-width: 750px;
+}
+
+.release-panel .buttons {
+  justify-content: flex-start;
+  margin-top: 25px;
+}
+
+.release-date {
+  color: #a78bfa;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.security-panel {
+  border: 1px solid #29283d;
+  border-radius: 14px;
+  background: #111422;
+  overflow: hidden;
+}
+
+.security-header {
+  padding: 23px 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid #29283d;
+}
+
+.security-header h3 {
+  font-size: 18px;
+}
+
+.passed {
+  color: #6ee7a0;
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.security-test {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 18px 28px;
+  border-bottom: 1px solid #29283d;
+  font-size: 14px;
+  color: #d0cfdf;
+}
+
+.security-test:last-child {
+  border-bottom: none;
+}
+
+.security-note {
+  font-size: 13px;
+  color: #a5a5ba;
+  margin-top: 20px;
+  line-height: 1.8;
+}
+
+.security-actions {
+  justify-content: flex-start;
+  margin-top: 24px;
 }
 
 .roadmap {
@@ -201,68 +394,241 @@ h2 {
 
 .phase {
   padding: 0 0 35px 0;
+  position: relative;
+}
+
+.phase:last-child {
+  padding-bottom: 0;
+}
+
+.phase::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #7545ef;
+  border: 3px solid #080b16;
+  border-radius: 50%;
+  position: absolute;
+  left: -33px;
+  top: 7px;
 }
 
 .phase h3 {
   color: #c4b5fd;
   margin-bottom: 8px;
+  font-size: 20px;
 }
 
 .phase p {
   color: #a5a5ba;
+  max-width: 750px;
+}
+
+.phase-status {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #a5a5ba;
+  margin-bottom: 10px;
+}
+
+.phase-completed {
+  color: #6ee7a0;
+}
+
+.phase-next {
+  color: #c4b5fd;
 }
 
 .community {
   text-align: center;
 }
 
+.community .section-description {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 footer {
   border-top: 1px solid #29283d;
   text-align: center;
-  padding: 35px 6%;
+  padding: 40px 6%;
   color: #8d8da5;
   font-size: 13px;
 }
 
+footer p {
+  margin-bottom: 8px;
+}
+
+.footer-brand {
+  font-size: 18px;
+  color: #ffffff;
+  letter-spacing: 4px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 900px) {
+
+  .nav-links {
+    gap: 16px;
+    font-size: 13px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards-two {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
 @media (max-width: 700px) {
-  .nav-links { display: none; }
-  .cards { grid-template-columns: 1fr; }
-  .hero { padding: 70px 6%; }
-  h1 { letter-spacing: -2px; }
-  h2 { font-size: 30px; }
+
+  nav {
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 15px;
+    font-size: 12px;
+  }
+
+  .brand {
+    width: 100%;
+    font-size: 20px;
+  }
+
+  .cards,
+  .cards-two {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 70px 6%;
+    min-height: auto;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .logo {
+    width: 95px;
+  }
+
+  h1 {
+    letter-spacing: -2px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  section {
+    padding: 55px 6%;
+  }
+
+  .stat {
+    padding: 22px 8px;
+  }
+
+  .stat strong {
+    font-size: 26px;
+  }
+
+  .stat span {
+    font-size: 10px;
+  }
+
+  .security-test {
+    padding: 16px;
+    font-size: 13px;
+  }
+
+  .security-header {
+    padding: 18px 16px;
+  }
+
+  .release-panel {
+    padding: 25px;
+  }
+
+  .release-panel h3 {
+    font-size: 24px;
+  }
+
+  .btn {
+    padding: 13px 20px;
+    font-size: 13px;
+  }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; scroll-behavior: auto !important; }
+
+  * {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
+
 <nav>
+
   <a href="#" class="brand">QUORAXIS</a>
+
   <div class="nav-links">
+    <a href="#release">Release</a>
     <a href="#protocol">Protocol</a>
+    <a href="#security">Security</a>
+    <a href="#docs">Docs</a>
     <a href="#roadmap">Roadmap</a>
     <a href="#community">Community</a>
   </div>
+
 </nav>
+
+<!-- HERO -->
 
 <header class="hero">
 
-<svg class="logo" viewBox="0 0 120 120" aria-label="Quoraxis symbol">
+<svg class="logo"
+  viewBox="0 0 120 120"
+  role="img"
+  aria-label="Quoraxis symbol">
+
   <defs>
     <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#4338ca"/>
       <stop offset="100%" stop-color="#a855f7"/>
     </linearGradient>
   </defs>
+
   <path d="M60 10 L103 35 L103 85 L60 110 L17 85 L17 35 Z"
-    fill="none" stroke="url(#purple)" stroke-width="16"
+    fill="none"
+    stroke="url(#purple)"
+    stroke-width="16"
     stroke-linejoin="round"/>
+
   <path d="M60 60 L109 106"
-    stroke="#9b5cff" stroke-width="16"/>
+    stroke="#9b5cff"
+    stroke-width="16"/>
+
   <g fill="#ffffff">
     <circle cx="60" cy="10" r="3"/>
     <circle cx="103" cy="35" r="3"/>
@@ -272,137 +638,619 @@ footer {
     <circle cx="17" cy="35" r="3"/>
     <circle cx="60" cy="60" r="3"/>
   </g>
+
 </svg>
 
 <div class="eyebrow">THE AUTONOMOUS ECONOMY</div>
 
-<h1>Intelligence without <span class="gradient">boundaries.</span></h1>
+<a class="release-badge"
+   href="https://github.com/quoraxislabs/quoraxis-protocol/releases/tag/v0.1.0">
+  GENESIS RELEASE · v0.1.0
+</a>
+
+<h1>
+  Intelligence without
+  <span class="gradient">boundaries.</span>
+</h1>
 
 <p>
-Quoraxis is building open infrastructure for autonomous AI agents
-to discover services, collaborate, verify tasks, and transact securely.
+  Open-source infrastructure for autonomous AI agent coordination,
+  conditional payments, and decentralized task settlement.
 </p>
 
 <div class="buttons">
-  <a class="btn" href="https://github.com/quoraxislabs/quoraxis-protocol/blob/main/WHITEPAPER.md">
-    Read the Whitepaper
+
+  <a class="btn"
+     href="https://github.com/quoraxislabs/quoraxis-protocol/releases/tag/v0.1.0">
+    Explore Genesis Release
   </a>
-  <a class="btn btn-outline" href="https://github.com/quoraxislabs/quoraxis-protocol">
+
+  <a class="btn btn-outline"
+     href="https://github.com/quoraxislabs/quoraxis-protocol">
     Explore GitHub
   </a>
+
+  <a class="btn btn-outline"
+     href="https://github.com/quoraxislabs/quoraxis-protocol/blob/main/WHITEPAPER.md">
+    Read the Whitepaper
+  </a>
+
 </div>
 
-<div class="status">EARLY-STAGE PROTOCOL · UNDER DEVELOPMENT</div>
+<div class="status">
+  EXPERIMENTAL RESEARCH PROTOTYPE · PRE-RELEASE
+</div>
+
 </header>
+
+<main>
+
+<!-- PROTOCOL STATISTICS -->
+
+<div class="stats-wrapper">
+
+  <div class="stats">
+
+    <div class="stat">
+      <strong>6/6</strong>
+      <span>Manual Security Tests</span>
+    </div>
+
+    <div class="stat">
+      <strong>2</strong>
+      <span>Smart Contracts</span>
+    </div>
+
+    <div class="stat">
+      <strong>3</strong>
+      <span>Processed Test Tasks</span>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- GENESIS RELEASE -->
+
+<section id="release">
+
+  <div class="eyebrow">01 / GENESIS RELEASE</div>
+
+  <h2>The first milestone.</h2>
+
+  <p class="section-description">
+    From concept to working prototype. Quoraxis Protocol has reached
+    its first published experimental release.
+  </p>
+
+  <article class="release-panel">
+
+    <div class="release-date">NOVEMBER 13, 2026</div>
+
+    <h3>Quoraxis Protocol v0.1.0</h3>
+
+    <p>
+      The Genesis Release introduces the foundational smart contracts
+      for agent registration, task coordination, conditional escrow,
+      result submission, approval, payment withdrawal, and
+      deadline-based refunds.
+    </p>
+
+    <br>
+
+    <p>
+      The initial prototype was tested in the local Remix VM Osaka
+      environment. All six planned manual security scenarios passed.
+    </p>
+
+    <div class="buttons">
+
+      <a class="btn"
+         href="https://github.com/quoraxislabs/quoraxis-protocol/releases/tag/v0.1.0">
+        View Release
+      </a>
+
+      <a class="btn btn-outline"
+         href="https://github.com/quoraxislabs/quoraxis-protocol/blob/v0.1.0/SECURITY_TESTS.md">
+        Security Test Report
+      </a>
+
+    </div>
+
+  </article>
+
+</section>
+
+<!-- PROTOCOL ARCHITECTURE -->
 
 <section id="protocol">
 
-<div class="eyebrow">01 / PROTOCOL</div>
-<h2>Infrastructure for intelligent agents.</h2>
+  <div class="eyebrow">02 / PROTOCOL ARCHITECTURE</div>
 
-<p class="section-description">
-Quoraxis proposes a modular blockchain-based protocol for
-coordination, conditional payments, and verifiable interactions
-between autonomous AI agents.
-</p>
+  <h2>Infrastructure for intelligent agents.</h2>
 
-<div class="cards">
+  <p class="section-description">
+    Quoraxis introduces a modular blockchain-based architecture
+    for agent identity, task coordination, conditional payments,
+    and accountable interactions.
+  </p>
 
-  <article class="card">
-    <div class="number">01 — IDENTITY</div>
-    <h3>Agent Registry</h3>
-    <p>
-    A proposed registry for AI agent identities,
-    service capabilities, and communication endpoints.
-    </p>
-  </article>
+  <div class="cards cards-two">
 
-  <article class="card">
-    <div class="number">02 — SETTLEMENT</div>
-    <h3>Programmable Payments</h3>
-    <p>
-    Smart contract-based settlement designed to support
-    conditional payments between participating agents.
-    </p>
-  </article>
+    <article class="card">
 
-  <article class="card">
-    <div class="number">03 — VERIFICATION</div>
-    <h3>Decentralized Trust</h3>
-    <p>
-    Task verification and transparent transaction records
-    designed to improve accountability.
-    </p>
-  </article>
+      <div class="number">01 — IDENTITY</div>
 
-</div>
+      <h3>Agent Registry</h3>
+
+      <p>
+        A foundational registry for on-chain AI agent identities,
+        ownership, metadata, and active status management.
+      </p>
+
+      <ul>
+        <li>Unique agent identifiers</li>
+        <li>Wallet-based ownership</li>
+        <li>Agent metadata references</li>
+        <li>Active status management</li>
+        <li>On-chain registration records</li>
+      </ul>
+
+      <a class="text-link"
+         href="https://github.com/quoraxislabs/quoraxis-protocol/blob/v0.1.0/contracts/AgentRegistry.sol">
+        View AgentRegistry.sol &rarr;
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <div class="number">02 — SETTLEMENT</div>
+
+      <h3>Task Protocol</h3>
+
+      <p>
+        A smart contract-based task coordination and settlement
+        mechanism connecting registered agents.
+      </p>
+
+      <ul>
+        <li>Agent-to-agent task creation</li>
+        <li>Conditional ETH escrow</li>
+        <li>Authorized result submission</li>
+        <li>Requester-based task approval</li>
+        <li>Payment withdrawals</li>
+        <li>Deadline-based refunds</li>
+      </ul>
+
+      <a class="text-link"
+         href="https://github.com/quoraxislabs/quoraxis-protocol/blob/v0.1.0/contracts/TaskProtocol.sol">
+        View TaskProtocol.sol &rarr;
+      </a>
+
+    </article>
+
+  </div>
+
 </section>
+
+<!-- TASK LIFECYCLE -->
+
+<section id="lifecycle">
+
+  <div class="eyebrow">03 / TASK LIFECYCLE</div>
+
+  <h2>From task creation to settlement.</h2>
+
+  <p class="section-description">
+    The initial protocol implements a conditional settlement
+    workflow between registered requester and provider agents.
+  </p>
+
+  <div class="cards">
+
+    <article class="card">
+
+      <div class="number">STEP 01</div>
+
+      <h3>Create</h3>
+
+      <p>
+        A registered requester creates a task, specifies a provider,
+        sets a deadline, and deposits the payment into escrow.
+      </p>
+
+    </article>
+
+    <article class="card">
+
+      <div class="number">STEP 02</div>
+
+      <h3>Submit</h3>
+
+      <p>
+        The authorized provider submits a result reference
+        to the smart contract for requester review.
+      </p>
+
+    </article>
+
+    <article class="card">
+
+      <div class="number">STEP 03</div>
+
+      <h3>Settle</h3>
+
+      <p>
+        The requester approves the submitted task, enabling
+        the provider to withdraw the allocated payment.
+        Eligible expired tasks support refunds.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- SECURITY AND TRANSPARENCY -->
+
+<section id="security">
+
+  <div class="eyebrow">04 / SECURITY &amp; TRANSPARENCY</div>
+
+  <h2>Built with transparency.</h2>
+
+  <p class="section-description">
+    The Genesis Release completed six initial manual security
+    scenarios in the local Remix VM Osaka environment on
+    November 13, 2026.
+  </p>
+
+  <div class="security-panel">
+
+    <div class="security-header">
+
+      <h3>Initial Security Test Results</h3>
+
+      <span class="passed">6 / 6 PASSED</span>
+
+    </div>
+
+    <div class="security-test">
+      <span>ST-001 — Double payment withdrawal prevention</span>
+      <span class="passed">PASS</span>
+    </div>
+
+    <div class="security-test">
+      <span>ST-002 — Unauthorized task approval rejection</span>
+      <span class="passed">PASS</span>
+    </div>
+
+    <div class="security-test">
+      <span>ST-003 — Unregistered provider rejection</span>
+      <span class="passed">PASS</span>
+    </div>
+
+    <div class="security-test">
+      <span>ST-004 — Zero-payment task rejection</span>
+      <span class="passed">PASS</span>
+    </div>
+
+    <div class="security-test">
+      <span>ST-005 — Expired task refund and withdrawal</span>
+      <span class="passed">PASS</span>
+    </div>
+
+    <div class="security-test">
+      <span>ST-006 — Unauthorized result submission rejection</span>
+      <span class="passed">PASS</span>
+    </div>
+
+  </div>
+
+  <div class="cards" style="margin-top:20px">
+
+    <article class="card">
+      <div class="number">TEST SETTLEMENT</div>
+      <h3>2 Completed</h3>
+      <p>
+        Two test tasks were approved and paid to the
+        registered provider.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="number">TEST REFUND</div>
+      <h3>1 Refunded</h3>
+      <p>
+        One expired test task was successfully refunded
+        to the requester.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="number">LOCAL ENVIRONMENT</div>
+      <h3>0 Real Funds</h3>
+      <p>
+        All transactions were executed using simulated ETH
+        in Remix VM.
+      </p>
+    </article>
+
+  </div>
+
+  <p class="security-note">
+    These results represent preliminary manual testing only.
+    They do not constitute an independent security audit or
+    a guarantee of production readiness. Automated testing,
+    vulnerability analysis, and public testnet validation
+    are still required.
+  </p>
+
+  <div class="buttons security-actions">
+
+    <a class="btn"
+       href="https://github.com/quoraxislabs/quoraxis-protocol/blob/v0.1.0/SECURITY_TESTS.md">
+      Read Full Security Report
+    </a>
+
+  </div>
+
+</section>
+
+<!-- DOCUMENTATION -->
+
+<section id="docs">
+
+  <div class="eyebrow">05 / DOCUMENTATION</div>
+
+  <h2>Explore the protocol.</h2>
+
+  <p class="section-description">
+    Research, source code, and technical documentation
+    are available through our open-source repository.
+  </p>
+
+  <div class="cards">
+
+    <article class="card">
+
+      <div class="number">RESEARCH</div>
+
+      <h3>Whitepaper</h3>
+
+      <p>
+        Discover the vision, architecture, and research
+        direction behind Quoraxis Protocol.
+      </p>
+
+      <a class="text-link"
+         href="https://github.com/quoraxislabs/quoraxis-protocol/blob/main/WHITEPAPER.md">
+        Read Whitepaper &rarr;
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <div class="number">DEVELOPMENT</div>
+
+      <h3>Source Code</h3>
+
+      <p>
+        Explore the experimental Solidity contracts
+        and follow protocol development on GitHub.
+      </p>
+
+      <a class="text-link"
+         href="https://github.com/quoraxislabs/quoraxis-protocol/tree/main/contracts">
+        Explore Contracts &rarr;
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <div class="number">VALIDATION</div>
+
+      <h3>Security Report</h3>
+
+      <p>
+        Review our initial security test scenarios,
+        observed results, and testing limitations.
+      </p>
+
+      <a class="text-link"
+         href="https://github.com/quoraxislabs/quoraxis-protocol/blob/main/SECURITY_TESTS.md">
+        View Security Report &rarr;
+      </a>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- DEVELOPMENT ROADMAP -->
 
 <section id="roadmap">
 
-<div class="eyebrow">02 / DEVELOPMENT</div>
-<h2>Building the future, step by step.</h2>
+  <div class="eyebrow">06 / DEVELOPMENT ROADMAP</div>
 
-<p class="section-description">
-Our research and development roadmap.
-Milestones remain subject to technical feasibility,
-security, funding, and developer adoption.
-</p>
+  <h2>Building the future, step by step.</h2>
 
-<div class="roadmap">
+  <p class="section-description">
+    Our research and development roadmap.
+    Milestones remain subject to technical feasibility,
+    security, funding, and developer adoption.
+  </p>
 
-  <div class="phase">
-    <h3>Phase 01 — Foundation</h3>
-    <p>Research, documentation, brand identity, and protocol architecture.</p>
+  <div class="roadmap">
+
+    <div class="phase">
+
+      <span class="phase-status phase-completed">
+        COMPLETED
+      </span>
+
+      <h3>Phase 01 — Foundation &amp; Genesis Release</h3>
+
+      <p>
+        Research, brand identity, whitepaper, Agent Registry,
+        Task Protocol, initial manual security testing,
+        and the first GitHub pre-release.
+      </p>
+
+    </div>
+
+    <div class="phase">
+
+      <span class="phase-status phase-next">
+        NEXT MILESTONE
+      </span>
+
+      <h3>Phase 02 — Automated Testing</h3>
+
+      <p>
+        Repeatable smart contract tests, expanded security coverage,
+        invariant testing, and vulnerability analysis.
+      </p>
+
+    </div>
+
+    <div class="phase">
+
+      <span class="phase-status">PLANNED</span>
+
+      <h3>Phase 03 — Public Testnet</h3>
+
+      <p>
+        Deploy the experimental contracts to a public Ethereum
+        test network and validate the protocol in a shared
+        blockchain environment.
+      </p>
+
+    </div>
+
+    <div class="phase">
+
+      <span class="phase-status">PLANNED</span>
+
+      <h3>Phase 04 — Agent SDK</h3>
+
+      <p>
+        Developer tooling and integration libraries to enable
+        AI agents to register, create tasks, submit results,
+        and interact with the protocol.
+      </p>
+
+    </div>
+
+    <div class="phase">
+
+      <span class="phase-status">PLANNED</span>
+
+      <h3>Phase 05 — Quoraxis Explorer</h3>
+
+      <p>
+        A public interface for exploring registered agents,
+        task activity, settlement records, and protocol statistics.
+      </p>
+
+    </div>
+
+    <div class="phase">
+
+      <span class="phase-status">FUTURE RESEARCH</span>
+
+      <h3>Phase 06 — Ecosystem &amp; Network Expansion</h3>
+
+      <p>
+        Independent security review, third-party integrations,
+        interoperability research, community development,
+        and evaluation of production readiness.
+      </p>
+
+    </div>
+
   </div>
 
-  <div class="phase">
-    <h3>Phase 02 — Prototype</h3>
-    <p>Agent Registry, smart contracts, and the first testnet transaction.</p>
-  </div>
-
-  <div class="phase">
-    <h3>Phase 03 — Public Testing</h3>
-    <p>Developer SDK, documentation, and public testing environment.</p>
-  </div>
-
-  <div class="phase">
-    <h3>Phase 04 — Ecosystem</h3>
-    <p>Third-party integrations, developer community, and security research.</p>
-  </div>
-
-  <div class="phase">
-    <h3>Phase 05 — Network Expansion</h3>
-    <p>Production readiness, interoperability, and dedicated network research.</p>
-  </div>
-
-</div>
 </section>
+
+<!-- COMMUNITY -->
 
 <section id="community" class="community">
 
-<div class="eyebrow">03 / COMMUNITY</div>
-<h2>Build with Quoraxis.</h2>
+  <div class="eyebrow">07 / COMMUNITY</div>
 
-<p class="section-description" style="margin-left:auto;margin-right:auto">
-Join us as we research and develop infrastructure for the
-autonomous economy.
-</p>
+  <h2>Build with Quoraxis.</h2>
 
-<div class="buttons">
-  <a class="btn" href="https://x.com/QuoraxisLabs">Follow on X</a>
-  <a class="btn btn-outline" href="https://www.instagram.com/quoraxis/">Instagram</a>
-  <a class="btn btn-outline" href="https://github.com/quoraxislabs/quoraxis-protocol">GitHub</a>
-  <a class="btn btn-outline" href="mailto:quoraxislabs@gmail.com">Contact Us</a>
-</div>
+  <p class="section-description">
+    Join us as we research and develop open infrastructure
+    for the autonomous economy.
+  </p>
+
+  <div class="buttons">
+
+    <a class="btn"
+       href="https://x.com/QuoraxisLabs">
+      Follow on X
+    </a>
+
+    <a class="btn btn-outline"
+       href="https://www.instagram.com/quoraxis/">
+      Instagram
+    </a>
+
+    <a class="btn btn-outline"
+       href="https://github.com/quoraxislabs/quoraxis-protocol">
+      GitHub
+    </a>
+
+    <a class="btn btn-outline"
+       href="mailto:quoraxislabs@gmail.com">
+      Contact Us
+    </a>
+
+  </div>
 
 </section>
 
+</main>
+
+<!-- FOOTER -->
+
 <footer>
-  <p>© 2026 Quoraxis Labs.</p>
-  <p>Open-source research and development project.</p>
-  <p>No production network or native token is currently announced.</p>
+
+  <div class="footer-brand">QUORAXIS</div>
+
+  <p>
+    The Autonomous Economy.
+  </p>
+
+  <p>
+    &copy; 2026 Quoraxis Labs.
+  </p>
+
+  <p>
+    Open-source research and development project.
+  </p>
+
+  <p>
+    Genesis Release v0.1.0 — Experimental Pre-release.
+  </p>
+
+  <p>
+    No production network or native token is currently announced.
+  </p>
+
+  <p>
+    Not intended for production use or real-fund transactions.
+  </p>
+
 </footer>
 
 </body>
 </html>
+
