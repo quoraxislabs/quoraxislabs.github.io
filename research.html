@@ -1,1 +1,1913 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Whitepaper and Genesis release research."><meta name="theme-color" content="#080b16"><title>Research | Quoraxis</title><link rel="stylesheet" href="assets/css/site.css"><script defer src="assets/js/site.js"></script></head><body><a class="skip" href="#main">Skip to content</a><header class="top"><nav aria-label="Main navigation"><a class="brand" href="index.html">QUORAXIS<span>LABS</span></a><button class="menu" aria-expanded="false" aria-controls="navlinks">Menu</button><div id="navlinks" class="navlinks"><a href="protocol.html">Protocol</a><a href="developers.html">Developers</a><a href="research.html" aria-current="page">Research</a><a href="security.html">Security</a><a href="playground.html">Playground</a><a href="roadmap.html">Roadmap</a><a href="about.html">About</a><a class="github" href="https://github.com/quoraxislabs/quoraxis-protocol">GitHub</a></div></nav></header><main id="main"><section class="pagehero"><span class="eyebrow">03 / RESEARCH</span><h1>Research in the open.</h1><p class="intro">Quoraxis explores infrastructure for coordination and settlement between autonomous agents.</p></section><section><span class="eyebrow">PUBLICATIONS</span><h2>Research library</h2><p class="intro"></p><div class="grid"><article class="card"><span class="eyebrow">WHITEPAPER</span><h3>Protocol vision</h3><p>Read the architecture and research direction.</p><a class="link" href="https://github.com/quoraxislabs/quoraxis-protocol/blob/main/WHITEPAPER.md">Explore →</a></article><article class="card"><span class="eyebrow">NOV 13, 2026</span><h3>Genesis Release</h3><p>First experimental release: two contracts and initial manual validation.</p><a class="link" href="https://github.com/quoraxislabs/quoraxis-protocol/releases/tag/v0.1.0">Explore →</a></article><article class="card"><span class="eyebrow">VALIDATION</span><h3>Security test report</h3><p>Results and limitations from the local test environment.</p><a class="link" href="https://github.com/quoraxislabs/quoraxis-protocol/blob/v0.1.0/SECURITY_TESTS.md">Explore →</a></article></div></section><aside class="notice"><strong>Research prototype</strong><p>Local Remix VM testing only. No public testnet deployment, independent audit, or real-fund transactions. Not intended for production use.</p></aside></main><footer><div class="foot"><div><a class="brand" href="index.html">QUORAXIS<span>LABS</span></a><p>Open infrastructure for the autonomous economy.</p></div><div><a class="link" href="https://github.com/quoraxislabs/quoraxis-protocol">GitHub</a> <a class="link" href="https://x.com/QuoraxisLabs">X</a> <a class="link" href="https://www.instagram.com/quoraxis/">Instagram</a> <a class="link" href="mailto:quoraxislabs@gmail.com">Contact</a></div></div><p class="fine">© 2026 Quoraxis Labs · Experimental research prototype · No production network or native token announced.</p></footer></body></html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+    content="Quoraxis Labs Research. Explore our technical publications, protocol development, security research and autonomous agent infrastructure.">
+
+  <meta name="theme-color" content="#080b16">
+
+  <title>Research | Quoraxis Labs</title>
+
+  <link rel="stylesheet" href="assets/css/site.css">
+
+  <script src="assets/js/site.js" defer></script>
+
+  <style>
+
+    .research-hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .research-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border: 1px solid #49376f;
+      border-radius: 30px;
+      color: #c4b5fd;
+      background: #1b1730;
+      font-size: 11px;
+      letter-spacing: .7px;
+    }
+
+    .research-dot {
+      width: 7px;
+      height: 7px;
+      background: #a78bfa;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #a78bfa;
+    }
+
+    .research-summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 35px;
+    }
+
+    .summary-card {
+      padding: 24px;
+      border: 1px solid #302b47;
+      border-radius: 12px;
+      background: #111422;
+    }
+
+    .summary-card span {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: #a9a9bf;
+      margin-bottom: 12px;
+    }
+
+    .summary-card strong {
+      display: block;
+      font-size: 25px;
+      color: #d8c7ff;
+      margin-bottom: 8px;
+    }
+
+    .summary-card p {
+      color: #b1b1c7;
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .research-feature {
+      border: 1px solid #49376f;
+      border-radius: 18px;
+      padding: 38px;
+      background:
+        radial-gradient(
+          ellipse at top right,
+          #30204e,
+          transparent 65%
+        ),
+        #111422;
+      margin-top: 30px;
+    }
+
+    .research-feature h3 {
+      font-size: 30px;
+      line-height: 1.2;
+      letter-spacing: -.025em;
+      margin: 16px 0;
+    }
+
+    .research-feature p {
+      color: #b1b1c7;
+      max-width: 760px;
+      line-height: 1.8;
+    }
+
+    .publication-type {
+      display: inline-block;
+      background: #2b2246;
+      border: 1px solid #51466c;
+      color: #d8c7ff;
+      padding: 7px 12px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      border-radius: 6px;
+    }
+
+    .research-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .research-meta span {
+      background: #202136;
+      color: #b1b1c7;
+      padding: 7px 11px;
+      border-radius: 6px;
+      font-size: 11px;
+    }
+
+    .publication-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .publication-card {
+      background: #111422;
+      border: 1px solid #302b47;
+      border-radius: 13px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .publication-card h3 {
+      margin: 16px 0 12px;
+      font-size: 21px;
+    }
+
+    .publication-card p {
+      color: #b1b1c7;
+      font-size: 14px;
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .publication-card .link {
+      margin-top: 20px;
+    }
+
+    .journal {
+      margin-top: 35px;
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .journal::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      bottom: 25px;
+      left: 5px;
+      width: 1px;
+      background: linear-gradient(
+        #a78bfa,
+        #49376f,
+        #29283d
+      );
+    }
+
+    .journal-entry {
+      position: relative;
+      background: #111422;
+      border: 1px solid #302b47;
+      border-radius: 13px;
+      padding: 27px;
+      margin-bottom: 22px;
+    }
+
+    .journal-entry::before {
+      content: "";
+      position: absolute;
+      left: -31px;
+      top: 30px;
+      width: 10px;
+      height: 10px;
+      border: 2px solid #a78bfa;
+      border-radius: 50%;
+      background: #080b16;
+    }
+
+    .journal-entry.latest {
+      border-color: #625099;
+      background: linear-gradient(
+        145deg,
+        #1a1730,
+        #111422
+      );
+    }
+
+    .journal-entry.latest::before {
+      background: #a78bfa;
+      box-shadow: 0 0 12px #7545ef88;
+    }
+
+    .journal-date {
+      color: #a9a9bf;
+      font-size: 11px;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .journal-title {
+      font-size: 23px;
+      margin: 0 0 14px;
+      letter-spacing: -.02em;
+    }
+
+    .journal-entry p {
+      color: #b1b1c7;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .journal-tag {
+      display: inline-block;
+      margin-bottom: 13px;
+      padding: 5px 10px;
+      border: 1px solid #403657;
+      border-radius: 20px;
+      background: #211c34;
+      color: #c4b5fd;
+      font-size: 10px;
+      letter-spacing: .7px;
+    }
+
+    .journal-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .journal-metrics div {
+      background: #111322;
+      border: 1px solid #302b47;
+      padding: 16px 12px;
+      border-radius: 9px;
+    }
+
+    .journal-metrics strong {
+      display: block;
+      color: #d8c7ff;
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+
+    .journal-metrics span {
+      display: block;
+      color: #a9a9bf;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .journal-commit {
+      display: inline-block;
+      padding: 6px 9px;
+      margin-top: 9px;
+      background: #202136;
+      border-radius: 5px;
+      font-family: monospace;
+      font-size: 12px;
+      color: #c4b5fd;
+    }
+
+    .research-track {
+      border: 1px solid #302b47;
+      background: #111422;
+      border-radius: 14px;
+      padding: 27px;
+      margin-top: 18px;
+    }
+
+    .track-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .track-number {
+      color: #a78bfa;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .track-status {
+      background: #292044;
+      border: 1px solid #51466c;
+      color: #d8c7ff;
+      border-radius: 20px;
+      padding: 6px 10px;
+      font-size: 10px;
+      letter-spacing: .5px;
+    }
+
+    .track-status.planned {
+      background: #191a2d;
+      border-color: #39364e;
+      color: #a9a9bf;
+    }
+
+    .research-track h3 {
+      font-size: 24px;
+      margin: 12px 0;
+    }
+
+    .research-track p {
+      color: #b1b1c7;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .research-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      list-style: none;
+      padding: 0;
+      margin: 22px 0 0;
+    }
+
+    .research-points li {
+      padding: 13px;
+      color: #ccc9dc;
+      font-size: 13px;
+      line-height: 1.5;
+      border: 1px solid #302b47;
+      border-radius: 8px;
+      background: #17192a;
+    }
+
+    .question-card {
+      margin-top: 14px;
+      padding: 24px;
+      background: #111422;
+      border: 1px solid #302b47;
+      border-radius: 12px;
+    }
+
+    .question-card h3 {
+      font-size: 18px;
+      line-height: 1.5;
+      margin: 0 0 12px;
+    }
+
+    .question-card p {
+      color: #b1b1c7;
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .research-disclosure {
+      margin-top: 28px;
+      padding: 23px;
+      border-left: 3px solid #a78bfa;
+      background: #171326;
+      border-radius: 0 12px 12px 0;
+    }
+
+    .research-disclosure h3 {
+      margin-top: 0;
+      font-size: 19px;
+    }
+
+    .research-disclosure p {
+      color: #b1b1c7;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .research-cta {
+      margin-top: 24px;
+      padding: 36px;
+      border: 1px solid #49376f;
+      border-radius: 17px;
+      background:
+        radial-gradient(
+          ellipse at top right,
+          #30204e,
+          transparent 70%
+        ),
+        #111422;
+    }
+
+    .research-cta h3 {
+      font-size: 27px;
+      margin: 12px 0 16px;
+    }
+
+    .research-cta p {
+      color: #b1b1c7;
+      line-height: 1.8;
+      max-width: 720px;
+    }
+
+    @media (max-width: 800px) {
+
+      .research-summary {
+        grid-template-columns: 1fr;
+      }
+
+      .publication-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .research-points {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .research-summary {
+        gap: 10px;
+        margin-top: 25px;
+      }
+
+      .summary-card {
+        padding: 20px;
+      }
+
+      .summary-card strong {
+        font-size: 23px;
+      }
+
+      .research-feature {
+        padding: 23px;
+        border-radius: 13px;
+      }
+
+      .research-feature h3 {
+        font-size: 25px;
+      }
+
+      .research-feature p {
+        font-size: 14px;
+      }
+
+      .publication-card {
+        padding: 21px;
+      }
+
+      .research-meta span {
+        font-size: 10px;
+      }
+
+      .journal {
+        padding-left: 21px;
+      }
+
+      .journal::before {
+        left: 3px;
+      }
+
+      .journal-entry {
+        padding: 20px 16px;
+      }
+
+      .journal-entry::before {
+        left: -24px;
+        top: 26px;
+        width: 9px;
+        height: 9px;
+      }
+
+      .journal-title {
+        font-size: 20px;
+        line-height: 1.3;
+      }
+
+      .journal-metrics {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .journal-metrics div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+      }
+
+      .journal-metrics strong {
+        margin: 0;
+        font-size: 22px;
+      }
+
+      .journal-metrics span {
+        text-align: right;
+      }
+
+      .research-track {
+        padding: 21px;
+      }
+
+      .research-track h3 {
+        font-size: 21px;
+      }
+
+      .question-card {
+        padding: 20px;
+      }
+
+      .research-cta {
+        padding: 24px;
+      }
+
+      .research-cta h3 {
+        font-size: 24px;
+      }
+
+      .research-cta .actions,
+      .research-feature .actions {
+        flex-direction: column;
+      }
+
+      .research-cta .btn,
+      .research-feature .btn {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<a class="skip" href="#main">
+  Skip to content
+</a>
+
+<!-- NAVIGATION -->
+
+<header class="top">
+
+  <nav>
+
+    <a class="brand" href="index.html">
+      QUORAXIS
+      <span>LABS</span>
+    </a>
+
+    <button class="menu"
+      type="button"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="navigation">
+      Menu
+    </button>
+
+    <div class="navlinks" id="navigation">
+
+      <a href="protocol.html">Protocol</a>
+
+      <a href="developers.html">Developers</a>
+
+      <a href="research.html"
+        aria-current="page">
+        Research
+      </a>
+
+      <a href="security.html">Security</a>
+
+      <a href="playground.html">Playground</a>
+
+      <a href="roadmap.html">Roadmap</a>
+
+      <a href="about.html">About</a>
+
+      <a class="github"
+        href="https://github.com/quoraxislabs/quoraxis-protocol">
+        GitHub
+      </a>
+
+    </div>
+
+  </nav>
+
+</header>
+
+<main id="main">
+
+<!-- RESEARCH HERO -->
+
+<section class="pagehero research-hero">
+
+  <div class="eyebrow">
+    QUORAXIS LABS / RESEARCH
+  </div>
+
+  <h1>
+    Researching the
+    <span class="gradient">
+      autonomous economy.
+    </span>
+  </h1>
+
+  <p class="intro">
+    Exploring the intersection of
+    artificial intelligence,
+    blockchain infrastructure,
+    programmable settlement and
+    autonomous economic coordination.
+  </p>
+
+  <div class="research-label">
+
+    <span class="research-dot"></span>
+
+    OPEN RESEARCH &amp; DEVELOPMENT
+
+  </div>
+
+  <div class="research-summary">
+
+    <article class="summary-card">
+
+      <span>RESEARCH FOCUS</span>
+
+      <strong>Agent Economy</strong>
+
+      <p>
+        Identity, coordination and
+        settlement infrastructure
+        for autonomous systems.
+      </p>
+
+    </article>
+
+    <article class="summary-card">
+
+      <span>CURRENT DEVELOPMENT</span>
+
+      <strong>v0.2.0</strong>
+
+      <p>
+        Security, financial accounting
+        and reliable task settlement.
+      </p>
+
+    </article>
+
+    <article class="summary-card">
+
+      <span>LATEST VALIDATION</span>
+
+      <strong>26/26</strong>
+
+      <p>
+        Automated tests passed
+        in our November 14, 2026
+        development validation.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- RESEARCH MISSION -->
+
+<section>
+
+  <div class="eyebrow">
+    01 / RESEARCH MISSION
+  </div>
+
+  <h2>
+    Intelligence needs infrastructure.
+  </h2>
+
+  <p class="intro">
+    As AI agents become increasingly
+    capable of performing complex
+    tasks, a fundamental challenge
+    emerges: how can autonomous systems
+    establish identity, coordinate
+    economic activity and settle
+    payments reliably?
+  </p>
+
+  <p class="intro">
+    Quoraxis Labs researches open
+    infrastructure for this emerging
+    economic environment. Our approach
+    begins with a focused protocol
+    architecture and develops through
+    implementation, experimentation
+    and reproducible validation.
+  </p>
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="eyebrow">
+        RESEARCH DOMAIN / 01
+      </div>
+
+      <h3>Agent Identity</h3>
+
+      <p>
+        Ownership, registration,
+        agent lifecycle management
+        and discoverable identities
+        for autonomous systems.
+      </p>
+
+    </article>
+
+    <article class="card">
+
+      <div class="eyebrow">
+        RESEARCH DOMAIN / 02
+      </div>
+
+      <h3>Economic Coordination</h3>
+
+      <p>
+        Structured interactions between
+        agents, task assignment,
+        result submission and
+        accountable workflows.
+      </p>
+
+    </article>
+
+    <article class="card">
+
+      <div class="eyebrow">
+        RESEARCH DOMAIN / 03
+      </div>
+
+      <h3>Programmable Settlement</h3>
+
+      <p>
+        Conditional payment execution,
+        escrow accounting, fund
+        recovery and settlement
+        reliability.
+      </p>
+
+    </article>
+
+    <article class="card">
+
+      <div class="eyebrow">
+        RESEARCH DOMAIN / 04
+      </div>
+
+      <h3>Trust &amp; Verification</h3>
+
+      <p>
+        Research into result
+        verification, reputation,
+        dispute resolution and
+        economic security.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- TECHNICAL PUBLICATIONS -->
+
+<section>
+
+  <div class="eyebrow">
+    02 / TECHNICAL PUBLICATIONS
+  </div>
+
+  <h2>Research in the open.</h2>
+
+  <p class="intro">
+    Explore the documents,
+    source code and validation
+    materials behind Quoraxis Protocol.
+  </p>
+
+  <article class="research-feature">
+
+    <span class="publication-type">
+      FEATURED PUBLICATION
+    </span>
+
+    <h3>
+      Quoraxis Protocol Whitepaper
+    </h3>
+
+    <p>
+      The foundational technical
+      document for Quoraxis Protocol,
+      introducing the research vision,
+      agent identity architecture,
+      task coordination model and
+      programmable settlement approach.
+    </p>
+
+    <div class="research-meta">
+
+      <span>Genesis documentation</span>
+
+      <span>November 2026</span>
+
+      <span>Public source</span>
+
+      <span>Technical research</span>
+
+    </div>
+
+    <div class="actions">
+
+      <a class="btn"
+        href="https://github.com/quoraxislabs/quoraxis-protocol/blob/main/WHITEPAPER.md">
+        Read whitepaper &rarr;
+      </a>
+
+      <a class="btn secondary"
+        href="protocol.html">
+        Explore architecture
+      </a>
+
+    </div>
+
+    <p class="fine">
+      Project technical documentation.
+      Not a peer-reviewed academic publication.
+    </p>
+
+  </article>
+
+  <div class="publication-grid">
+
+    <article class="publication-card">
+
+      <span class="publication-type">
+        SECURITY REPORT
+      </span>
+
+      <h3>
+        Genesis Security Validation
+      </h3>
+
+      <p>
+        Documentation of six initial
+        manual security test scenarios,
+        including unauthorized operations,
+        refunds and payment withdrawal
+        protection in the Remix VM.
+      </p>
+
+      <a class="link"
+        href="https://github.com/quoraxislabs/quoraxis-protocol/blob/main/SECURITY_TESTS.md">
+        Read security report &rarr;
+      </a>
+
+    </article>
+
+    <article class="publication-card">
+
+      <span class="publication-type">
+        SOURCE DOCUMENTATION
+      </span>
+
+      <h3>
+        Protocol Architecture
+      </h3>
+
+      <p>
+        Public Solidity implementation
+        of Agent Registry and Task Protocol,
+        together with the foundational
+        open-source repository documentation.
+      </p>
+
+      <a class="link"
+        href="https://github.com/quoraxislabs/quoraxis-protocol">
+        Explore source code &rarr;
+      </a>
+
+    </article>
+
+    <article class="publication-card">
+
+      <span class="publication-type">
+        AUTOMATED VALIDATION
+      </span>
+
+      <h3>
+        Foundry Test Suite
+      </h3>
+
+      <p>
+        Unit tests, fuzz testing,
+        stateful invariant accounting
+        and edge case validation
+        for the current development
+        version of Quoraxis Protocol.
+      </p>
+
+      <a class="link"
+        href="https://github.com/quoraxislabs/quoraxis-protocol/tree/main/test">
+        Review test source &rarr;
+      </a>
+
+    </article>
+
+    <article class="publication-card">
+
+      <span class="publication-type">
+        DEVELOPMENT RELEASE
+      </span>
+
+      <h3>
+        Genesis Release v0.1.0
+      </h3>
+
+      <p>
+        The initial public
+        experimental pre-release,
+        documenting the first
+        foundational protocol milestone.
+      </p>
+
+      <a class="link"
+        href="https://github.com/quoraxislabs/quoraxis-protocol/releases/tag/v0.1.0">
+        Read release notes &rarr;
+      </a>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- DEVELOPMENT JOURNAL -->
+
+<section>
+
+  <div class="eyebrow">
+    03 / DEVELOPMENT JOURNAL
+  </div>
+
+  <h2>Progress, documented.</h2>
+
+  <p class="intro">
+    A chronological record of
+    technical milestones and
+    verifiable research progress
+    from Quoraxis Labs.
+  </p>
+
+  <div class="journal">
+
+    <!-- LATEST UPDATE -->
+
+    <article class="journal-entry latest">
+
+      <div class="journal-date">
+        NOVEMBER 14, 2026
+      </div>
+
+      <span class="journal-tag">
+        SECURITY VALIDATION
+      </span>
+
+      <h3 class="journal-title">
+        26 automated tests completed
+      </h3>
+
+      <p>
+        Quoraxis completed a new
+        automated validation milestone
+        across five smart contract
+        test suites.
+      </p>
+
+      <p>
+        The latest development
+        snapshot passed all reported
+        tests, including seven new
+        edge case scenarios examining
+        invalid task transitions
+        and fund recovery.
+      </p>
+
+      <div class="journal-metrics">
+
+        <div>
+          <strong>26/26</strong>
+          <span>Automated tests passed</span>
+        </div>
+
+        <div>
+          <strong>1,024</strong>
+          <span>Fuzz test runs</span>
+        </div>
+
+        <div>
+          <strong>8,192</strong>
+          <span>Invariant handler calls</span>
+        </div>
+
+      </div>
+
+      <p>
+        The expired submitted task
+        recovery test passed through
+        at least one requester-initiated
+        settlement or refund path.
+      </p>
+
+      <p>
+        Non-cooperative requester
+        scenarios remain an open
+        research priority.
+      </p>
+
+      <span class="journal-commit">
+        80fc274
+      </span>
+
+      <div class="actions">
+
+        <a class="btn secondary"
+          href="security.html">
+          Full validation overview
+        </a>
+
+        <a class="btn secondary"
+          href="https://github.com/quoraxislabs/quoraxis-protocol/commit/80fc274">
+          View commit
+        </a>
+
+      </div>
+
+    </article>
+
+    <!-- INVARIANTS -->
+
+    <article class="journal-entry">
+
+      <div class="journal-date">
+        NOVEMBER 14, 2026
+      </div>
+
+      <span class="journal-tag">
+        ACCOUNTING RESEARCH
+      </span>
+
+      <h3 class="journal-title">
+        Stateful invariant testing
+      </h3>
+
+      <p>
+        A stateful test handler
+        was introduced to examine
+        accounting properties across
+        randomized protocol interactions.
+      </p>
+
+      <p>
+        Four invariant properties
+        validated deposit conservation,
+        escrow accounting consistency,
+        total funds conservation
+        and withdrawal limits.
+      </p>
+
+      <p>
+        The reported campaign
+        completed 128 runs with
+        a sequence depth of 64,
+        producing 8,192 handler calls
+        and zero observed handler reverts.
+      </p>
+
+      <p class="fine">
+        These results apply to the
+        configured test model and
+        do not establish universal
+        financial correctness.
+      </p>
+
+      <span class="journal-commit">
+        e9419ad
+      </span>
+
+      <div class="actions">
+
+        <a class="btn secondary"
+          href="https://github.com/quoraxislabs/quoraxis-protocol/commit/e9419ad">
+          View implementation
+        </a>
+
+      </div>
+
+    </article>
+
+    <!-- FUZZ -->
+
+    <article class="journal-entry">
+
+      <div class="journal-date">
+        NOVEMBER 14, 2026
+      </div>
+
+      <span class="journal-tag">
+        FUZZ TESTING
+      </span>
+
+      <h3 class="journal-title">
+        1,024 fuzz test runs
+      </h3>
+
+      <p>
+        Four fuzz test functions
+        were added to evaluate
+        payment settlement,
+        refund accuracy,
+        repeated withdrawal prevention
+        and unauthorized approval.
+      </p>
+
+      <p>
+        Each function completed
+        256 fuzz runs across
+        variable payment amounts,
+        from 1 wei to 100 ETH,
+        without reported failures.
+      </p>
+
+      <span class="journal-commit">
+        790aa12
+      </span>
+
+      <div class="actions">
+
+        <a class="btn secondary"
+          href="https://github.com/quoraxislabs/quoraxis-protocol/commit/790aa12">
+          View fuzz test commit
+        </a>
+
+      </div>
+
+    </article>
+
+    <!-- CI -->
+
+    <article class="journal-entry">
+
+      <div class="journal-date">
+        NOVEMBER 14, 2026
+      </div>
+
+      <span class="journal-tag">
+        DEVELOPER INFRASTRUCTURE
+      </span>
+
+      <h3 class="journal-title">
+        Automated continuous integration
+      </h3>
+
+      <p>
+        Foundry and GitHub Actions
+        were configured to automatically
+        compile and test the protocol
+        on main-branch pushes
+        and pull requests.
+      </p>
+
+      <p>
+        The initial automated suite
+        completed 14 unit tests
+        covering Agent Registry
+        and Task Protocol behavior.
+      </p>
+
+      <span class="journal-commit">
+        3e85f59
+      </span>
+
+      <div class="actions">
+
+        <a class="btn secondary"
+          href="https://github.com/quoraxislabs/quoraxis-protocol/actions">
+          Explore CI history
+        </a>
+
+      </div>
+
+    </article>
+
+    <!-- MANUAL VALIDATION -->
+
+    <article class="journal-entry">
+
+      <div class="journal-date">
+        NOVEMBER 13, 2026
+      </div>
+
+      <span class="journal-tag">
+        PROTOCOL VALIDATION
+      </span>
+
+      <h3 class="journal-title">
+        Initial settlement experiments
+      </h3>
+
+      <p>
+        The foundational protocol
+        was evaluated in a local
+        Remix VM environment,
+        using Genesis and Atlas
+        as registered test participants.
+      </p>
+
+      <p>
+        Three task scenarios were
+        completed, covering successful
+        settlement, expired-task refund
+        and unauthorized result submission.
+      </p>
+
+      <p>
+        Six manual security scenarios
+        were documented in the
+        initial security report.
+      </p>
+
+      <div class="actions">
+
+        <a class="btn secondary"
+          href="https://github.com/quoraxislabs/quoraxis-protocol/blob/main/SECURITY_TESTS.md">
+          View manual validation report
+        </a>
+
+      </div>
+
+    </article>
+
+    <!-- GENESIS RELEASE -->
+
+    <article class="journal-entry">
+
+      <div class="journal-date">
+        NOVEMBER 13, 2026
+      </div>
+
+      <span class="journal-tag">
+        GENESIS RELEASE
+      </span>
+
+      <h3 class="journal-title">
+        Quoraxis Protocol v0.1.0
+      </h3>
+
+      <p>
+        The Genesis pre-release
+        established the initial
+        open-source foundation
+        of Quoraxis Protocol.
+      </p>
+
+      <p>
+        Agent Registry and Task Protocol
+        introduced agent registration,
+        structured tasks, conditional
+        ETH escrow and payment
+        withdrawal mechanisms.
+      </p>
+
+      <span class="journal-commit">
+        65b7465
+      </span>
+
+      <div class="actions">
+
+        <a class="btn secondary"
+          href="https://github.com/quoraxislabs/quoraxis-protocol/releases/tag/v0.1.0">
+          View Genesis Release
+        </a>
+
+      </div>
+
+    </article>
+
+  </div>
+
+  <p class="fine">
+    Journal entries describe local
+    development and test environments.
+    They do not represent production
+    transactions, real customer usage
+    or commercial adoption.
+  </p>
+
+</section>
+
+<!-- ACTIVE RESEARCH -->
+
+<section>
+
+  <div class="eyebrow">
+    04 / ACTIVE RESEARCH
+  </div>
+
+  <h2>What we are working on.</h2>
+
+  <p class="intro">
+    Current and future research
+    tracks supporting the evolution
+    of Quoraxis Protocol.
+  </p>
+
+  <article class="research-track">
+
+    <div class="track-top">
+
+      <span class="track-number">
+        RESEARCH TRACK / 01
+      </span>
+
+      <span class="track-status">
+        ACTIVE RESEARCH
+      </span>
+
+    </div>
+
+    <h3>
+      Settlement Reliability
+    </h3>
+
+    <p>
+      Investigating mechanisms
+      that reduce the risk of
+      payment deadlocks when
+      one participant becomes
+      unresponsive or refuses
+      to cooperate.
+    </p>
+
+    <ul class="research-points">
+
+      <li>
+        Task review deadlines
+      </li>
+
+      <li>
+        Non-cooperative fund recovery
+      </li>
+
+      <li>
+        Dispute initiation mechanisms
+      </li>
+
+      <li>
+        Fair settlement outcomes
+      </li>
+
+    </ul>
+
+    <div class="research-disclosure">
+
+      <h3>Open design challenge</h3>
+
+      <p>
+        Automatically paying a provider
+        after a deadline may reward
+        invalid submissions.
+        Allowing unilateral refunds
+        may disadvantage legitimate
+        providers.
+      </p>
+
+      <p>
+        Quoraxis is exploring
+        settlement designs that
+        address both risks.
+        These mechanisms are not yet
+        implemented in the released
+        protocol.
+      </p>
+
+    </div>
+
+  </article>
+
+  <article class="research-track">
+
+    <div class="track-top">
+
+      <span class="track-number">
+        RESEARCH TRACK / 02
+      </span>
+
+      <span class="track-status">
+        ACTIVE RESEARCH
+      </span>
+
+    </div>
+
+    <h3>
+      Economic Security
+    </h3>
+
+    <p>
+      Expanding the protocol's
+      validation framework to
+      investigate adversarial
+      behavior, access control
+      assumptions and the preservation
+      of user funds.
+    </p>
+
+    <ul class="research-points">
+
+      <li>
+        Extended invariant accounting
+      </li>
+
+      <li>
+        Adversarial state transitions
+      </li>
+
+      <li>
+        Multi-agent interactions
+      </li>
+
+      <li>
+        Withdrawal and recovery risks
+      </li>
+
+    </ul>
+
+  </article>
+
+  <article class="research-track">
+
+    <div class="track-top">
+
+      <span class="track-number">
+        RESEARCH TRACK / 03
+      </span>
+
+      <span class="track-status planned">
+        PLANNED RESEARCH
+      </span>
+
+    </div>
+
+    <h3>
+      Autonomous Agent Integration
+    </h3>
+
+    <p>
+      Researching the integration
+      of functional AI agents with
+      programmable task coordination
+      and economic settlement systems.
+    </p>
+
+    <ul class="research-points">
+
+      <li>
+        Python agent integration
+      </li>
+
+      <li>
+        Automated task execution
+      </li>
+
+      <li>
+        Agent authorization controls
+      </li>
+
+      <li>
+        Budget and spending limits
+      </li>
+
+    </ul>
+
+  </article>
+
+  <article class="research-track">
+
+    <div class="track-top">
+
+      <span class="track-number">
+        RESEARCH TRACK / 04
+      </span>
+
+      <span class="track-status planned">
+        FUTURE RESEARCH
+      </span>
+
+    </div>
+
+    <h3>
+      Trust and Result Verification
+    </h3>
+
+    <p>
+      Exploring mechanisms
+      through which autonomous
+      systems can evaluate
+      service quality,
+      verify task outcomes
+      and establish economic trust.
+    </p>
+
+    <ul class="research-points">
+
+      <li>
+        Agent reputation models
+      </li>
+
+      <li>
+        Verifiable task results
+      </li>
+
+      <li>
+        Independent resolution models
+      </li>
+
+      <li>
+        Interoperability research
+      </li>
+
+    </ul>
+
+  </article>
+
+</section>
+
+<!-- OPEN QUESTIONS -->
+
+<section>
+
+  <div class="eyebrow">
+    05 / OPEN RESEARCH QUESTIONS
+  </div>
+
+  <h2>
+    The challenges ahead.
+  </h2>
+
+  <p class="intro">
+    Progress requires acknowledging
+    unresolved questions.
+    We publish our current limitations
+    as part of an open research process.
+  </p>
+
+  <article class="question-card">
+
+    <h3>
+      How can autonomous agents
+      verify the quality of work?
+    </h3>
+
+    <p>
+      A submitted result reference
+      does not establish that
+      the requested task was
+      completed correctly.
+      Reliable verification remains
+      a fundamental research challenge.
+    </p>
+
+  </article>
+
+  <article class="question-card">
+
+    <h3>
+      How can settlement remain fair
+      without participant cooperation?
+    </h3>
+
+    <p>
+      Review periods, dispute handling
+      and payment recovery require
+      carefully designed incentives
+      to protect both task requesters
+      and service providers.
+    </p>
+
+  </article>
+
+  <article class="question-card">
+
+    <h3>
+      How should autonomous
+      spending be controlled?
+    </h3>
+
+    <p>
+      Agent wallets and automated
+      economic activity require
+      authorization boundaries,
+      spending limits and operational
+      safeguards before real-world use.
+    </p>
+
+  </article>
+
+  <article class="question-card">
+
+    <h3>
+      How can agent infrastructure
+      remain interoperable?
+    </h3>
+
+    <p>
+      Future development must examine
+      integration with external
+      AI frameworks, agent communication
+      standards and developer tooling.
+    </p>
+
+  </article>
+
+</section>
+
+<!-- RESEARCH PRINCIPLES -->
+
+<section>
+
+  <div class="eyebrow">
+    06 / RESEARCH PRINCIPLES
+  </div>
+
+  <h2>Our approach to development.</h2>
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="eyebrow">
+        PRINCIPLE / 01
+      </div>
+
+      <h3>Evidence before claims</h3>
+
+      <p>
+        Technical claims should
+        be supported by inspectable
+        implementations, reproducible
+        tests and documented results.
+      </p>
+
+    </article>
+
+    <article class="card">
+
+      <div class="eyebrow">
+        PRINCIPLE / 02
+      </div>
+
+      <h3>Transparent limitations</h3>
+
+      <p>
+        Distinguish implemented
+        functionality from research
+        concepts, future milestones
+        and unresolved risks.
+      </p>
+
+    </article>
+
+    <article class="card">
+
+      <div class="eyebrow">
+        PRINCIPLE / 03
+      </div>
+
+      <h3>Open infrastructure</h3>
+
+      <p>
+        Build through accessible
+        source code, public
+        documentation and
+        developer-oriented research.
+      </p>
+
+    </article>
+
+    <article class="card">
+
+      <div class="eyebrow">
+        PRINCIPLE / 04
+      </div>
+
+      <h3>Responsible experimentation</h3>
+
+      <p>
+        Prioritize local testing,
+        security review and
+        testnet validation before
+        managing real economic value.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- RESEARCH COLLABORATION -->
+
+<section>
+
+  <div class="eyebrow">
+    07 / RESEARCH COLLABORATION
+  </div>
+
+  <h2>Build with us.</h2>
+
+  <div class="research-cta">
+
+    <div class="eyebrow">
+      OPEN COLLABORATION
+    </div>
+
+    <h3>
+      Help shape the autonomous economy.
+    </h3>
+
+    <p>
+      Quoraxis Labs welcomes
+      technical discussions with
+      researchers, developers,
+      security specialists and
+      potential strategic partners
+      interested in autonomous
+      agent infrastructure.
+    </p>
+
+    <p>
+      Explore our implementation,
+      review the current research
+      questions or contact us
+      to discuss opportunities
+      for collaboration.
+    </p>
+
+    <div class="actions">
+
+      <a class="btn"
+        href="https://github.com/quoraxislabs/quoraxis-protocol">
+        Explore GitHub
+      </a>
+
+      <a class="btn secondary"
+        href="mailto:quoraxislabs@gmail.com">
+        Contact Quoraxis Labs
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="research-disclosure">
+
+    <h3>Research disclosure</h3>
+
+    <p>
+      Quoraxis Protocol remains
+      an experimental research
+      and development project.
+    </p>
+
+    <p>
+      Current test results relate
+      to specific development
+      snapshots and configured
+      testing environments.
+      They do not constitute
+      an independent security audit
+      or guarantee production readiness.
+    </p>
+
+    <p>
+      Genesis and Atlas are currently
+      test and simulation participants,
+      not deployed autonomous AI agents.
+    </p>
+
+    <p>
+      Public testnet deployment,
+      functional AI agent integrations
+      and production infrastructure
+      remain future milestones.
+    </p>
+
+    <p>
+      Last research update:
+      November 14, 2026.
+    </p>
+
+  </div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="foot">
+
+    <div>
+
+      <a class="brand" href="index.html">
+        QUORAXIS
+        <span>LABS</span>
+      </a>
+
+      <p>
+        Infrastructure for the autonomous economy.
+      </p>
+
+    </div>
+
+    <div>
+
+      <a class="link"
+        href="https://x.com/QuoraxisLabs">
+        X
+      </a>
+
+      <a class="link"
+        href="https://www.instagram.com/quoraxis/">
+        Instagram
+      </a>
+
+      <a class="link"
+        href="https://github.com/quoraxislabs/quoraxis-protocol">
+        GitHub
+      </a>
+
+      <a class="link"
+        href="mailto:quoraxislabs@gmail.com">
+        Contact
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="fine">
+
+    <p>
+      &copy; 2026 Quoraxis Labs.
+      Open-source research and development project.
+    </p>
+
+    <p>
+      Experimental infrastructure.
+      Not independently audited.
+      Not intended for production use.
+    </p>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
