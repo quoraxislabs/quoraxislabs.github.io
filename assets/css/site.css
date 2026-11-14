@@ -642,3 +642,374 @@ footer .fine {
   }
 
 }
+
+/* QUORAXIS MOBILE EXPERIENCE v2.1 */
+
+@media (max-width: 600px) {
+
+  /* Mobile navigation */
+
+  .top {
+    background: #080b16;
+    border-bottom: 1px solid #25263a;
+  }
+
+  .top nav {
+    padding: 16px 6%;
+    gap: 16px;
+  }
+
+  .brand {
+    font-size: 17px;
+    letter-spacing: 3px;
+  }
+
+  .brand span {
+    font-size: 8px;
+    letter-spacing: 4px;
+  }
+
+  .menu {
+    min-width: 64px;
+    min-height: 44px;
+    padding: 9px 14px;
+    font-size: 13px;
+    border: 1px solid #39304f;
+    border-radius: 9px;
+    background: #121426;
+  }
+
+  .menu[aria-expanded="true"] {
+    color: #c4b5fd;
+    border-color: #7545ef;
+  }
+
+  .navlinks.open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 0 4px;
+    border-top: 1px solid #25263a;
+  }
+
+  .navlinks a {
+    display: block;
+    padding: 13px 8px;
+    font-size: 15px;
+    border-bottom: 1px solid #25263a;
+  }
+
+  .navlinks .github {
+    margin-top: 12px;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #51466c;
+    border-radius: 8px;
+    background: #161328;
+  }
+
+  /* Mobile page layout */
+
+  main {
+    padding: 0 6% 40px;
+  }
+
+  section {
+    padding: 42px 0;
+  }
+
+  /* Homepage hero */
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    min-height: auto;
+    padding: 26px 0 35px;
+    text-align: center;
+  }
+
+  .hero .visual {
+    order: -1;
+    width: 100%;
+    max-width: 240px;
+    min-height: 215px;
+    margin: 0 auto;
+  }
+
+  .hero .symbol {
+    width: 95px;
+  }
+
+  .hero .orbit {
+    width: 85%;
+  }
+
+  .hero .o2 {
+    width: 66%;
+  }
+
+  .hero .o3 {
+    width: 45%;
+  }
+
+  .hero .node {
+    width: 5px;
+    height: 5px;
+  }
+
+  .hero .pill {
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    padding: 8px 12px;
+    border-radius: 30px;
+  }
+
+  .hero h1 {
+    font-size: clamp(30px, 8.2vw, 42px);
+    line-height: 1.13;
+    letter-spacing: -0.035em;
+    margin: 20px auto 16px;
+    max-width: 480px;
+    text-wrap: balance;
+  }
+
+  .hero .intro {
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0 auto 20px;
+    color: #b1b1c7;
+    max-width: 400px;
+  }
+
+  /* Primary actions */
+
+  .hero .actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .hero .btn {
+    display: block;
+    width: 100%;
+    padding: 14px 18px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 9px;
+    min-height: 48px;
+  }
+
+  .hero .fine {
+    font-size: 11px;
+    line-height: 1.6;
+    max-width: 300px;
+    margin: 14px auto 0;
+  }
+
+  /* Statistics */
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    background: #111422;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .stats div {
+    padding: 20px 8px;
+  }
+
+  .stats strong {
+    font-size: 26px;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .stats span {
+    display: block;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  /* Section typography */
+
+  h2 {
+    font-size: clamp(26px, 7vw, 34px);
+    line-height: 1.2;
+    margin: 12px 0 16px;
+    letter-spacing: -0.025em;
+  }
+
+  h3 {
+    font-size: 19px;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .intro {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* Cards */
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .card {
+    padding: 21px;
+    border-radius: 12px;
+  }
+
+  .card p,
+  .timeline p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* Inner pages */
+
+  .pagehero {
+    padding-top: 40px;
+    padding-bottom: 32px;
+  }
+
+  .pagehero h1 {
+    font-size: clamp(32px, 9vw, 44px);
+    line-height: 1.13;
+    margin: 16px 0 18px;
+    overflow-wrap: anywhere;
+  }
+
+  .pagehero .intro {
+    font-size: 15px;
+  }
+
+  .pagehero .actions {
+    flex-direction: column;
+  }
+
+  .pagehero .btn {
+    text-align: center;
+    min-height: 46px;
+  }
+
+  /* Security results */
+
+  .testlist {
+    border-radius: 12px;
+  }
+
+  .testlist div {
+    padding: 15px 12px;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+  }
+
+  .testlist strong {
+    flex-shrink: 0;
+    font-size: 10px;
+  }
+
+  /* Interactive playground */
+
+  .demo {
+    padding: 18px;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .demo-top {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .agents,
+  .demo-stats {
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  .agents > div,
+  .demo-stats > div {
+    min-width: 0;
+    padding: 12px 9px;
+  }
+
+  .agents h3 {
+    font-size: 17px;
+  }
+
+  .agents span,
+  .demo-stats span {
+    font-size: 10px;
+  }
+
+  .agents .arrow {
+    font-size: 17px;
+    align-self: center;
+  }
+
+  .demo-stats strong {
+    font-size: 17px;
+  }
+
+  .demo input {
+    font-size: 16px;
+    min-height: 46px;
+  }
+
+  .progress {
+    gap: 5px;
+  }
+
+  .progress li {
+    font-size: 10px;
+    padding: 10px 2px;
+  }
+
+  #advance {
+    min-height: 48px;
+    font-size: 14px;
+  }
+
+  #message {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* Footer */
+
+  footer {
+    padding: 28px 6%;
+  }
+
+  .foot {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .foot .link {
+    margin: 6px 8px;
+    font-size: 13px;
+  }
+
+  footer .fine {
+    font-size: 11px;
+    text-align: center;
+    line-height: 1.8;
+  }
+
+}
