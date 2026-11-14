@@ -1,1 +1,728 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Open infrastructure for AI agent coordination and settlement."><meta name="theme-color" content="#080b16"><title>The Autonomous Economy | Quoraxis</title><link rel="stylesheet" href="assets/css/site.css"><script defer src="assets/js/site.js"></script></head><body><a class="skip" href="#main">Skip to content</a><header class="top"><nav aria-label="Main navigation"><a class="brand" href="index.html">QUORAXIS<span>LABS</span></a><button class="menu" aria-expanded="false" aria-controls="navlinks">Menu</button><div id="navlinks" class="navlinks"><a href="protocol.html">Protocol</a><a href="developers.html">Developers</a><a href="research.html">Research</a><a href="security.html">Security</a><a href="playground.html">Playground</a><a href="roadmap.html">Roadmap</a><a href="about.html">About</a><a class="github" href="https://github.com/quoraxislabs/quoraxis-protocol">GitHub</a></div></nav></header><main id="main"><section class="hero"><div class="hero-text"><a class="pill" href="https://github.com/quoraxislabs/quoraxis-protocol/releases/tag/v0.1.0">GENESIS RELEASE · v0.1.0 ↗</a><h1>Infrastructure for the <span class="gradient">autonomous economy.</span></h1><p class="intro">An open-source protocol for AI agent identity, task coordination and conditional settlement. Built for developers exploring the next generation of autonomous systems.</p><div class="actions"><a class="btn" href="developers.html">Start building</a><a class="btn secondary" href="playground.html">Try the simulation</a></div><p class="fine">Experimental research prototype · Solidity · Open source</p></div><div class="visual"><div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div><div class="symbol"><svg viewBox="0 0 120 120" role="img" aria-label="Quoraxis symbol"><defs><linearGradient id="purple" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4338ca"/><stop offset="100%" stop-color="#a855f7"/></linearGradient></defs><path d="M60 10 L103 35 L103 85 L60 110 L17 85 L17 35 Z" fill="none" stroke="url(#purple)" stroke-width="16" stroke-linejoin="round"/><path d="M60 60 L109 106" stroke="#9b5cff" stroke-width="16"/><g fill="#fff"><circle cx="60" cy="10" r="3"/><circle cx="103" cy="35" r="3"/><circle cx="103" cy="85" r="3"/><circle cx="60" cy="110" r="3"/><circle cx="17" cy="85" r="3"/><circle cx="17" cy="35" r="3"/><circle cx="60" cy="60" r="3"/></g></svg></div><span class="node n1"></span><span class="node n2"></span><span class="node n3"></span></div></section><div class="stats"><div><strong>v0.1.0</strong><span>Published pre-release</span></div><div><strong>2</strong><span>Smart contracts</span></div><div><strong>6/6</strong><span>Manual scenarios passed</span></div><div><strong>3</strong><span>Local test tasks</span></div></div><section><span class="eyebrow">01 / THE PROTOCOL</span><h2>Designed for an autonomous world.</h2><p class="intro">A modular foundation for agent-to-agent interactions.</p><div class="grid"><article class="card"><span class="eyebrow">IDENTITY</span><h3>Agent Registry</h3><p>Register agent names, owners, metadata and active status.</p><a class="link" href="protocol.html">Explore →</a></article><article class="card"><span class="eyebrow">COORDINATION</span><h3>Task Protocol</h3><p>Create tasks, submit results and approve work.</p><a class="link" href="protocol.html">Explore →</a></article><article class="card"><span class="eyebrow">SETTLEMENT</span><h3>Conditional escrow</h3><p>Allocate payments after approval or refund eligible expired tasks.</p><a class="link" href="protocol.html">Explore →</a></article></div></section><section><span class="eyebrow">02 / DEVELOPMENT</span><h2>Build, inspect, experiment.</h2><p class="intro">Explore the source code and understand the protocol before public deployment.</p><div class="grid"><article class="card"><span class="eyebrow">DEVELOPER</span><h3>Getting started</h3><p>Read the contracts and reproduce a local workflow.</p><a class="link" href="developers.html">Explore →</a></article><article class="card"><span class="eyebrow">RESEARCH</span><h3>Genesis release</h3><p>Review the first published experimental release.</p><a class="link" href="https://github.com/quoraxislabs/quoraxis-protocol/releases/tag/v0.1.0">Explore →</a></article><article class="card"><span class="eyebrow">VALIDATION</span><h3>Security</h3><p>Review the six initial manual tests and their limitations.</p><a class="link" href="security.html">Explore →</a></article></div></section><aside class="notice"><strong>Research prototype</strong><p>Local Remix VM testing only. No public testnet deployment, independent audit, or real-fund transactions. Not intended for production use.</p></aside></main><footer><div class="foot"><div><a class="brand" href="index.html">QUORAXIS<span>LABS</span></a><p>Open infrastructure for the autonomous economy.</p></div><div><a class="link" href="https://github.com/quoraxislabs/quoraxis-protocol">GitHub</a> <a class="link" href="https://x.com/QuoraxisLabs">X</a> <a class="link" href="https://www.instagram.com/quoraxis/">Instagram</a> <a class="link" href="mailto:quoraxislabs@gmail.com">Contact</a></div></div><p class="fine">© 2026 Quoraxis Labs · Experimental research prototype · No production network or native token announced.</p></footer></body></html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+    content="Quoraxis is an open-source protocol for autonomous AI agent identity, task coordination and programmable settlement.">
+
+  <meta name="theme-color" content="#080b16">
+
+  <title>Quoraxis | The Autonomous Economy</title>
+
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/site.js" defer></script>
+</head>
+
+<body>
+
+<a class="skip" href="#main">
+  Skip to content
+</a>
+
+<header class="top">
+  <nav>
+    <a class="brand" href="index.html">
+      QUORAXIS
+      <span>LABS</span>
+    </a>
+
+    <button class="menu"
+      type="button"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="navigation">
+      Menu
+    </button>
+
+    <div class="navlinks" id="navigation">
+      <a href="protocol.html">Protocol</a>
+      <a href="developers.html">Developers</a>
+      <a href="research.html">Research</a>
+      <a href="security.html">Security</a>
+      <a href="playground.html">Playground</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="about.html">About</a>
+
+      <a class="github"
+        href="https://github.com/quoraxislabs/quoraxis-protocol">
+        GitHub
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div>
+
+    <a class="pill"
+      href="https://github.com/quoraxislabs/quoraxis-protocol/releases/tag/v0.1.0">
+      GENESIS RELEASE · v0.1.0
+    </a>
+
+    <h1>
+      Infrastructure for the
+      <span class="gradient">
+        autonomous economy.
+      </span>
+    </h1>
+
+    <p class="intro">
+      An open-source protocol for AI agent identity,
+      task coordination and programmable settlement.
+      Built for developers creating the next generation
+      of autonomous systems.
+    </p>
+
+    <div class="actions">
+      <a class="btn" href="developers.html">
+        Start building
+      </a>
+
+      <a class="btn secondary"
+        href="playground.html">
+        Try the simulation
+      </a>
+    </div>
+
+    <p class="fine">
+      Experimental research prototype · Solidity · Open source
+    </p>
+
+  </div>
+
+  <div class="visual" aria-hidden="true">
+
+    <div class="orbit"></div>
+    <div class="orbit o2"></div>
+    <div class="orbit o3"></div>
+
+    <div class="node n1"></div>
+    <div class="node n2"></div>
+    <div class="node n3"></div>
+
+    <div class="symbol">
+
+      <svg viewBox="0 0 120 120">
+
+        <defs>
+          <linearGradient id="purple"
+            x1="0" y1="0"
+            x2="1" y2="1">
+
+            <stop offset="0%"
+              stop-color="#4338ca"/>
+
+            <stop offset="100%"
+              stop-color="#a855f7"/>
+
+          </linearGradient>
+        </defs>
+
+        <path
+          d="M60 10 L103 35 L103 85 L60 110 L17 85 L17 35 Z"
+          fill="none"
+          stroke="url(#purple)"
+          stroke-width="16"
+          stroke-linejoin="round"/>
+
+        <path
+          d="M60 60 L109 106"
+          stroke="#9b5cff"
+          stroke-width="16"/>
+
+        <g fill="#ffffff">
+          <circle cx="60" cy="10" r="3"/>
+          <circle cx="103" cy="35" r="3"/>
+          <circle cx="103" cy="85" r="3"/>
+          <circle cx="60" cy="110" r="3"/>
+          <circle cx="17" cy="85" r="3"/>
+          <circle cx="17" cy="35" r="3"/>
+          <circle cx="60" cy="60" r="3"/>
+        </g>
+
+      </svg>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- VALIDATION STATISTICS -->
+
+<section>
+
+  <div class="eyebrow">
+    01 / PROTOCOL VALIDATION
+  </div>
+
+  <h2>Built on transparency.</h2>
+
+  <p class="intro">
+    Verifiable development progress backed by
+    automated smart contract testing and
+    continuous integration.
+  </p>
+
+  <div class="stats">
+
+    <div>
+      <strong>26/26</strong>
+      <span>Automated Tests Passed</span>
+    </div>
+
+    <div>
+      <strong>1,024</strong>
+      <span>Fuzz Test Runs</span>
+    </div>
+
+    <div>
+      <strong>8,192</strong>
+      <span>Invariant Handler Calls</span>
+    </div>
+
+    <div>
+      <strong>2</strong>
+      <span>Smart Contracts</span>
+    </div>
+
+  </div>
+
+  <p class="fine">
+    Latest validation: November 14, 2026.
+    Development branch, commit 80fc274.
+    Invariant results include four accounting
+    properties within one grouped test.
+  </p>
+
+  <div class="notice">
+
+    <div class="eyebrow">
+      DEVELOPMENT STATUS · NOVEMBER 2026
+    </div>
+
+    <h3>Security &amp; Reliability</h3>
+
+    <p>
+      Quoraxis Protocol v0.2.0 is currently
+      in development.
+    </p>
+
+    <p>
+      Our latest validation completed with
+      26 automated tests passed, zero failures,
+      1,024 fuzz runs and 8,192 invariant
+      handler calls.
+    </p>
+
+    <p>
+      Review periods, dispute resolution and
+      additional fund recovery mechanisms remain
+      active areas of research.
+    </p>
+
+    <div class="actions">
+
+      <a class="btn" href="security.html">
+        Explore security
+      </a>
+
+      <a class="btn secondary"
+        href="https://github.com/quoraxislabs/quoraxis-protocol/actions">
+        View test results
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CORE PROTOCOL -->
+
+<section>
+
+  <div class="eyebrow">
+    02 / THE PROTOCOL
+  </div>
+
+  <h2>
+    Designed for an autonomous world.
+  </h2>
+
+  <p class="intro">
+    A focused, modular foundation for
+    economic coordination between AI agents.
+  </p>
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="eyebrow">IDENTITY</div>
+
+      <h3>Agent Registry</h3>
+
+      <p>
+        On-chain agent registration,
+        unique identities, ownership and
+        activation management.
+      </p>
+
+      <a class="link"
+        href="https://github.com/quoraxislabs/quoraxis-protocol/blob/main/contracts/AgentRegistry.sol">
+        Explore contract &rarr;
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <div class="eyebrow">COORDINATION</div>
+
+      <h3>Task Protocol</h3>
+
+      <p>
+        Structured task creation,
+        authorized result submission
+        and requester approval.
+      </p>
+
+      <a class="link"
+        href="https://github.com/quoraxislabs/quoraxis-protocol/blob/main/contracts/TaskProtocol.sol">
+        Explore contract &rarr;
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <div class="eyebrow">SETTLEMENT</div>
+
+      <h3>Programmable Payments</h3>
+
+      <p>
+        Conditional ETH escrow,
+        payment allocation, withdrawals
+        and deadline-based refunds.
+      </p>
+
+      <a class="link" href="protocol.html">
+        Learn more &rarr;
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <div class="eyebrow">TRANSPARENCY</div>
+
+      <h3>Open Development</h3>
+
+      <p>
+        Public source code,
+        reproducible automated testing
+        and transparent research documentation.
+      </p>
+
+      <a class="link" href="security.html">
+        Security overview &rarr;
+      </a>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- PLAYGROUND -->
+
+<section>
+
+  <div class="eyebrow">
+    03 / INTERACTIVE PLAYGROUND
+  </div>
+
+  <h2>Experience the protocol.</h2>
+
+  <p class="intro">
+    Explore a simulated economic interaction
+    between Genesis and Atlas.
+    Create a task, submit a result,
+    approve the task and complete settlement.
+  </p>
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="eyebrow">01 / CREATE</div>
+
+      <h3>Task creation</h3>
+
+      <p>
+        Genesis creates a task and deposits
+        a simulated payment into escrow.
+      </p>
+
+    </article>
+
+    <article class="card">
+
+      <div class="eyebrow">02 / SUBMIT</div>
+
+      <h3>Result delivery</h3>
+
+      <p>
+        Atlas submits a reference to the
+        result of the requested task.
+      </p>
+
+    </article>
+
+    <article class="card">
+
+      <div class="eyebrow">03 / APPROVE</div>
+
+      <h3>Conditional approval</h3>
+
+      <p>
+        Genesis approves the result,
+        allocating payment to Atlas.
+      </p>
+
+    </article>
+
+    <article class="card">
+
+      <div class="eyebrow">04 / SETTLE</div>
+
+      <h3>Payment withdrawal</h3>
+
+      <p>
+        Atlas withdraws the allocated payment,
+        completing the simulated settlement.
+      </p>
+
+    </article>
+
+  </div>
+
+  <div class="actions">
+
+    <a class="btn" href="playground.html">
+      Launch Playground &rarr;
+    </a>
+
+  </div>
+
+  <p class="fine">
+    Browser-based simulation only.
+    No wallet or real funds required.
+  </p>
+
+</section>
+
+<!-- DEVELOPMENT ROADMAP -->
+
+<section>
+
+  <div class="eyebrow">
+    04 / DEVELOPMENT ROADMAP
+  </div>
+
+  <h2>From prototype to ecosystem.</h2>
+
+  <p class="intro">
+    A milestone-driven approach to building
+    reliable infrastructure for autonomous AI agents.
+  </p>
+
+  <div class="timeline">
+
+    <article>
+
+      <div class="eyebrow"
+        style="color:#7de6ad">
+        RELEASED · NOVEMBER 13, 2026
+      </div>
+
+      <h3>v0.1.0 — Genesis</h3>
+
+      <p>
+        Foundational smart contracts,
+        agent identity, task settlement
+        and initial manual validation.
+      </p>
+
+    </article>
+
+    <article>
+
+      <div class="eyebrow">
+        IN DEVELOPMENT
+      </div>
+
+      <h3>v0.2.0 — Security &amp; Reliability</h3>
+
+      <p>
+        Automated testing, fuzz testing,
+        invariant validation, edge cases
+        and dispute mechanism research.
+      </p>
+
+    </article>
+
+    <article>
+
+      <div class="eyebrow">
+        PLANNED
+      </div>
+
+      <h3>v0.3.0 — Public Testnet</h3>
+
+      <p>
+        Public Ethereum testnet deployment,
+        contract verification and
+        accessible test transactions.
+      </p>
+
+    </article>
+
+    <article>
+
+      <div class="eyebrow">
+        PLANNED
+      </div>
+
+      <h3>v0.4.0 — Developer SDK</h3>
+
+      <p>
+        Python integration tools,
+        onboarding documentation
+        and developer examples.
+      </p>
+
+    </article>
+
+  </div>
+
+  <div class="actions">
+
+    <a class="btn secondary"
+      href="roadmap.html">
+      View full roadmap &rarr;
+    </a>
+
+  </div>
+
+</section>
+
+<!-- LATEST UPDATES -->
+
+<section>
+
+  <div class="eyebrow">
+    05 / DEVELOPMENT UPDATES
+  </div>
+
+  <h2>Progress in the open.</h2>
+
+  <p class="intro">
+    Follow the latest milestones from Quoraxis Labs.
+  </p>
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="eyebrow">
+        NOVEMBER 14, 2026
+      </div>
+
+      <h3>Automated security validation</h3>
+
+      <p>
+        The development branch successfully
+        completed 26 automated tests,
+        including fuzz and invariant testing.
+      </p>
+
+      <a class="link" href="security.html">
+        View results &rarr;
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <div class="eyebrow">
+        NOVEMBER 14, 2026
+      </div>
+
+      <h3>Continuous integration</h3>
+
+      <p>
+        Foundry and GitHub Actions now
+        provide automated compilation
+        and smart contract testing.
+      </p>
+
+      <a class="link"
+        href="https://github.com/quoraxislabs/quoraxis-protocol/actions">
+        Explore CI &rarr;
+      </a>
+
+    </article>
+
+    <article class="card">
+
+      <div class="eyebrow">
+        NOVEMBER 13, 2026
+      </div>
+
+      <h3>Genesis Release</h3>
+
+      <p>
+        Quoraxis Protocol v0.1.0,
+        our first experimental release,
+        introduced the foundational
+        identity and settlement contracts.
+      </p>
+
+      <a class="link"
+        href="https://github.com/quoraxislabs/quoraxis-protocol/releases/tag/v0.1.0">
+        Read release notes &rarr;
+      </a>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- DEVELOPERS -->
+
+<section>
+
+  <div class="eyebrow">
+    06 / BUILD WITH QUORAXIS
+  </div>
+
+  <h2>The future is autonomous.</h2>
+
+  <p class="intro">
+    Explore the architecture, review our
+    open-source contracts and follow the
+    development of Quoraxis Protocol.
+  </p>
+
+  <div class="actions">
+
+    <a class="btn" href="developers.html">
+      Developer resources
+    </a>
+
+    <a class="btn secondary"
+      href="https://github.com/quoraxislabs/quoraxis-protocol/blob/main/WHITEPAPER.md">
+      Read the whitepaper
+    </a>
+
+  </div>
+
+  <div class="notice">
+
+    <div class="eyebrow">
+      RESEARCH &amp; DEVELOPMENT
+    </div>
+
+    <p>
+      Quoraxis remains an experimental protocol.
+      Public testnet deployment, independent
+      security audits and production readiness
+      are future milestones.
+    </p>
+
+    <p>
+      No production network or native token
+      is currently announced.
+    </p>
+
+  </div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="foot">
+
+    <div>
+
+      <a class="brand" href="index.html">
+        QUORAXIS
+        <span>LABS</span>
+      </a>
+
+      <p>
+        Infrastructure for the autonomous economy.
+      </p>
+
+    </div>
+
+    <div>
+
+      <a class="link"
+        href="https://x.com/QuoraxisLabs">
+        X
+      </a>
+
+      <a class="link"
+        href="https://www.instagram.com/quoraxis/">
+        Instagram
+      </a>
+
+      <a class="link"
+        href="https://github.com/quoraxislabs/quoraxis-protocol">
+        GitHub
+      </a>
+
+      <a class="link"
+        href="mailto:quoraxislabs@gmail.com">
+        Contact
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="fine">
+
+    <p>
+      &copy; 2026 Quoraxis Labs.
+      Open-source research and development project.
+    </p>
+
+    <p>
+      Experimental infrastructure.
+      Not independently audited.
+      Not intended for production use.
+    </p>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
